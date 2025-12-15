@@ -40,7 +40,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="mb-6">
               <span className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                INSOFT AI
+                INSOFT AI Store
               </span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
@@ -106,8 +106,8 @@ const Footer = () => {
               </svg>
               <div>
                 <div className="text-white font-medium mb-1">이메일</div>
-                <a href="mailto:contact@insoft-ai.com" className="text-gray-400 hover:text-purple-400 transition-colors">
-                  contact@insoft-ai.com
+                <a href="mailto:sales@in-soft.co.kr" className="text-gray-400 hover:text-purple-400 transition-colors">
+                  sales@in-soft.co.kr
                 </a>
               </div>
             </div>
@@ -117,8 +117,8 @@ const Footer = () => {
               </svg>
               <div>
                 <div className="text-white font-medium mb-1">전화</div>
-                <a href="tel:+82-2-1234-5678" className="text-gray-400 hover:text-purple-400 transition-colors">
-                  02-1234-5678
+                <a href="tel:+82-2-6309-5743" className="text-gray-400 hover:text-purple-400 transition-colors">
+                  02-6309-5743
                 </a>
               </div>
             </div>
@@ -130,7 +130,8 @@ const Footer = () => {
               <div>
                 <div className="text-white font-medium mb-1">주소</div>
                 <p className="text-gray-400">
-                  서울특별시 강남구 테헤란로 123
+                  서울특별시 영등포구 경인로 775,<br />
+                  에이스하이테크시티 2동 504호
                 </p>
               </div>
             </div>

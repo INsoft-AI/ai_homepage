@@ -14,7 +14,7 @@ const Hero = () => {
         {/* Badge */}
         <div className="inline-flex items-center px-4 py-2 bg-purple-100 rounded-full mb-8">
           <span className="text-purple-700 font-semibold text-sm">
-            INSOFT AI 사업본부
+            INSOFT AI Store
           </span>
         </div>
 

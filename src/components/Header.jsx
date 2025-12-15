@@ -35,7 +35,7 @@ const Header = () => {
           <div className="flex-shrink-0">
             <a href="/" className="flex items-center">
               <span className="text-2xl md:text-3xl font-bold text-gradient">
-                INSOFT AI
+                INSOFT AI Store
               </span>
             </a>
           </div>
