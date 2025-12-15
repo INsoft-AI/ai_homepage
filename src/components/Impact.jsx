@@ -1,6 +1,8 @@
 import React from 'react';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const Impact = () => {
+  const [sectionRef, isVisible] = useScrollReveal({ threshold: 0.2, rootMargin: '-50px' });
   const cases = [
     {
       metric: '370만+',
@@ -34,7 +36,10 @@ const Impact = () => {
 
   return (
     <section id="impact" className="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-purple-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        ref={sectionRef}
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal ${isVisible ? 'visible' : ''}`}
+      >
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">

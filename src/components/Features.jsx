@@ -1,6 +1,8 @@
 import React from 'react';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const Features = () => {
+  const [sectionRef, isVisible] = useScrollReveal({ threshold: 0.2, rootMargin: '-50px' });
   const features = [
     {
       icon: (
@@ -36,7 +38,10 @@ const Features = () => {
 
   return (
     <section id="services" className="py-20 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        ref={sectionRef}
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-reveal ${isVisible ? 'visible' : ''}`}
+      >
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
