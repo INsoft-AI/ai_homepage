@@ -45,6 +45,66 @@ const AISolutionsPage = () => {
 
   const solutions = [
     {
+      id: 'orchestration',
+      category: 'AI Mesh Orchestration',
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      ),
+      color: 'from-indigo-500 to-purple-600',
+      description: '국내 최초 역할 기반 Multi Agent Orchestration 플랫폼으로 기업의 AX를 혁신적으로 가속하는 솔루션입니다.',
+      services: [
+        {
+          title: '역할 기반 Multi Agent Orchestration',
+          description: 'Agent에 역할과 목표를 부여하고, Agent들이 협업하여 복잡한 문제를 해결합니다. 자연어를 활용해 간단하게 AI 자동화 시스템을 개발할 수 있습니다.',
+        },
+        {
+          title: 'Agent 도구 할당',
+          description: '역할과 목표를 할당하면서 동시에 활용할 도구를 지정하여, 지정된 방법으로 문제를 해결합니다. 투명한 동작 내역으로 보안 및 규제 적용이 용이합니다.',
+        },
+        {
+          title: '메모리 기반 정보 공유',
+          description: 'Agent들의 기억(메모리)을 공유하여 모든 협업 Agent가 학습하고 적응합니다. AI 윤리 규정 적용 및 감사가 가능합니다.',
+        },
+        {
+          title: '실행 과정 평가 및 결과 검증',
+          description: 'Agent의 활동을 기록하고 평가하는 시스템으로, 분할된 역할로 복잡한 업무를 단순화하여 빠른 응답 성능과 저렴한 운영 비용을 실현합니다.',
+        },
+      ],
+      partners: 'KT / CrewAI 전략적 협력',
+    },
+    {
+      id: 'npo',
+      category: 'AI Mesh NPO',
+      icon: (
+        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+        </svg>
+      ),
+      color: 'from-cyan-500 to-blue-600',
+      description: '복잡한 AI 서비스의 운영을 위한 자동화된 AI 서비스 운영 플랫폼으로, 사람이 필요 없는 NPO(No Personnel Operation) 솔루션입니다.',
+      services: [
+        {
+          title: '자연어 기반 AI 인프라/서비스 운영',
+          description: 'AI 인프라 확장 및 조정을 자동화하고, 자연어로 인프라와 서비스를 손쉽게 운영할 수 있습니다. AI 서비스 운영 비용을 혁신적으로 절감합니다.',
+        },
+        {
+          title: 'AI 서비스 장애 분석 및 대응 자동화',
+          description: '문제해결 과정에 AI가 깊이 개입하여 원인 분석 및 대응을 자동화합니다. 신속한 장애 분석으로 서비스 안정성을 높입니다.',
+        },
+        {
+          title: 'Data Fabric 기반 데이터 수집',
+          description: 'AI 서비스와 관련된 광범위한 데이터를 수집하고, 인프라, 서비스, 운영 노하우를 지식으로 축적합니다. 운영 인원이 변경되어도 지식은 유지됩니다.',
+        },
+        {
+          title: 'RAG 기반 지식 축적 및 활용',
+          description: '대화형 Q&A 시스템을 통해 축적된 지식을 활용하고, 보고서 작성 자동화와 데이터 분석을 지원합니다. 신규 운영 인원의 On-boarding 시간을 단축합니다.',
+        },
+      ],
+      partners: 'SKT / SKB 전략적 협력',
+    },
+    {
       id: 'ecommerce',
       category: '이커머스',
       icon: (

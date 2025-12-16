@@ -6,6 +6,38 @@ const Solutions = () => {
   const [sectionRef, isVisible] = useScrollReveal({ threshold: 0.2, rootMargin: '-50px' });
   const solutions = [
     {
+      id: 'orchestration',
+      category: 'AI Mesh Orchestration',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      ),
+      color: 'from-indigo-500 to-purple-600',
+      services: [
+        '역할 기반 Multi Agent Orchestration',
+        'Agent 도구 할당 및 협업',
+        '메모리 기반 정보 공유',
+        '실행 과정 평가 및 결과 검증',
+      ],
+    },
+    {
+      id: 'npo',
+      category: 'AI Mesh NPO',
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+        </svg>
+      ),
+      color: 'from-cyan-500 to-blue-600',
+      services: [
+        '자연어 기반 AI 인프라/서비스 운영',
+        'AI 서비스 장애 분석 및 대응 자동화',
+        'Data Fabric 기반 데이터 수집',
+        'RAG 기반 지식 축적 및 활용',
+      ],
+    },
+    {
       id: 'ecommerce',
       category: '이커머스',
       icon: (
