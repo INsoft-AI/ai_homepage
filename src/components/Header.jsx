@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,12 +19,35 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: '서비스', href: '#services' },
-    { name: 'AI 솔루션', href: '#solutions' },
-    { name: '성과 사례', href: '#impact' },
-    { name: '회사소개', href: '#about' },
-    { name: '문의하기', href: '#contact' },
+    { name: '서비스', href: '#services', isRoute: false },
+    { name: 'AI 솔루션', href: '#solutions', isRoute: false },
+    { name: '성과 사례', href: '#impact', isRoute: false },
+    { name: '회사소개', href: '#about', isRoute: false },
+    { name: '문의하기', href: '/consultation', isRoute: true },
   ];
+
+  const handleAnchorClick = (e, href) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+
+    if (location.pathname !== '/') {
+      // 다른 페이지에 있으면 홈으로 이동 후 스크롤
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // 홈페이지에 있으면 바로 스크롤
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header
@@ -35,7 +61,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <span className={`text-2xl md:text-3xl font-bold transition-all duration-500 ease-in-out ${
                 isScrolled
                   ? 'text-gradient'
@@ -43,35 +69,50 @@ const Header = () => {
               }`}>
                 INSOFT AI Store
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className={`font-medium transition-all duration-500 ease-in-out ${
-                  isScrolled
-                    ? 'text-gray-700 hover:text-purple-600'
-                    : 'text-white/90 hover:text-white drop-shadow-md'
-                }`}
-              >
-                {item.name}
-              </a>
+              item.isRoute ? (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`font-medium transition-all duration-500 ease-in-out ${
+                    isScrolled
+                      ? 'text-gray-700 hover:text-purple-600'
+                      : 'text-white/90 hover:text-white drop-shadow-md'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => handleAnchorClick(e, item.href)}
+                  className={`font-medium transition-all duration-500 ease-in-out cursor-pointer ${
+                    isScrolled
+                      ? 'text-gray-700 hover:text-purple-600'
+                      : 'text-white/90 hover:text-white drop-shadow-md'
+                  }`}
+                >
+                  {item.name}
+                </a>
+              )
             ))}
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <button className={`px-6 py-2.5 rounded-lg font-semibold transition-all duration-500 ease-in-out ${
+            <Link to="/consultation" className={`px-6 py-2.5 rounded-lg font-semibold transition-all duration-500 ease-in-out ${
               isScrolled
                 ? 'gradient-bg text-white hover:opacity-90'
                 : 'bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30'
             }`}>
               무료 상담
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -107,18 +148,29 @@ const Header = () => {
         <div className="md:hidden bg-white border-t border-gray-200">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-purple-600 transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.name}
-              </a>
+              item.isRoute ? (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-purple-600 transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={(e) => handleAnchorClick(e, item.href)}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-purple-600 transition-colors cursor-pointer"
+                >
+                  {item.name}
+                </a>
+              )
             ))}
-            <button className="w-full gradient-bg text-white px-4 py-2 rounded-lg font-semibold mt-2">
+            <Link to="/consultation" className="block w-full gradient-bg text-white px-4 py-2 rounded-lg font-semibold mt-2 text-center" onClick={() => setIsMobileMenuOpen(false)}>
               무료 상담
-            </button>
+            </Link>
           </div>
         </div>
       )}

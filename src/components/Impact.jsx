@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import useScrollReveal from '../hooks/useScrollReveal';
 
 const Impact = () => {
@@ -120,9 +121,9 @@ const Impact = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
             귀사의 성공 스토리를 함께 만들어가겠습니다
           </h3>
-          <button className="gradient-bg text-white px-8 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition-all duration-200 transform hover:scale-105 shadow-lg">
+          <Link to="/consultation" className="inline-block gradient-bg text-white px-8 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition-all duration-200 transform hover:scale-105 shadow-lg">
             무료 컨설팅 신청하기
-          </button>
+          </Link>
         </div>
       </div>
     </section>
