@@ -6,6 +6,7 @@ const Solutions = () => {
   const [sectionRef, isVisible] = useScrollReveal({ threshold: 0.2, rootMargin: '-50px' });
   const solutions = [
     {
+      id: 'ecommerce',
       category: '이커머스',
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -21,6 +22,7 @@ const Solutions = () => {
       ],
     },
     {
+      id: 'marketing',
       category: '마케팅/광고',
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -36,6 +38,7 @@ const Solutions = () => {
       ],
     },
     {
+      id: 'automation',
       category: '업무 자동화',
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -51,6 +54,7 @@ const Solutions = () => {
       ],
     },
     {
+      id: 'custom',
       category: '맞춤형 AI',
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -127,7 +131,7 @@ const Solutions = () => {
               {/* Learn More Link */}
               <div className="mt-6 pt-6 border-t border-gray-100">
                 <Link
-                  to="/consultation"
+                  to="/solutions"
                   className="inline-flex items-center gap-2 text-purple-600 font-semibold hover:gap-3 transition-all duration-200"
                 >
                   <span>자세히 알아보기</span>

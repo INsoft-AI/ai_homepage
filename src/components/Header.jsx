@@ -22,7 +22,7 @@ const Header = () => {
     { name: '서비스', href: '#services', isRoute: false },
     { name: 'AI 솔루션', href: '#solutions', isRoute: false },
     { name: '성과 사례', href: '#impact', isRoute: false },
-    { name: '회사소개', href: '#about', isRoute: false },
+    { name: '회사소개', href: '/about', isRoute: true },
     { name: '문의하기', href: '/consultation', isRoute: true },
   ];
 
@@ -49,11 +49,17 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  // 홈이 아닌 페이지에서는 항상 그라데이션 배경 적용
+  const isHomePage = location.pathname === '/';
+  const showColoredHeader = !isHomePage || isScrolled;
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-sm shadow-md'
+        showColoredHeader
+          ? isHomePage
+            ? 'bg-white/95 backdrop-blur-sm shadow-md'
+            : 'bg-gradient-to-r from-purple-600 to-blue-600 shadow-md'
           : 'bg-transparent'
       }`}
     >
@@ -63,7 +69,7 @@ const Header = () => {
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
               <span className={`text-2xl md:text-3xl font-bold transition-all duration-500 ease-in-out ${
-                isScrolled
+                isHomePage && isScrolled
                   ? 'text-gradient'
                   : 'text-white drop-shadow-lg'
               }`}>
@@ -80,7 +86,7 @@ const Header = () => {
                   key={item.name}
                   to={item.href}
                   className={`font-medium transition-all duration-500 ease-in-out ${
-                    isScrolled
+                    isHomePage && isScrolled
                       ? 'text-gray-700 hover:text-purple-600'
                       : 'text-white/90 hover:text-white drop-shadow-md'
                   }`}
@@ -93,7 +99,7 @@ const Header = () => {
                   href={item.href}
                   onClick={(e) => handleAnchorClick(e, item.href)}
                   className={`font-medium transition-all duration-500 ease-in-out cursor-pointer ${
-                    isScrolled
+                    isHomePage && isScrolled
                       ? 'text-gray-700 hover:text-purple-600'
                       : 'text-white/90 hover:text-white drop-shadow-md'
                   }`}
@@ -107,7 +113,7 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Link to="/consultation" className={`px-6 py-2.5 rounded-lg font-semibold transition-all duration-500 ease-in-out ${
-              isScrolled
+              isHomePage && isScrolled
                 ? 'gradient-bg text-white hover:opacity-90'
                 : 'bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30'
             }`}>
@@ -118,7 +124,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             className={`md:hidden p-2 rounded-md transition-all duration-500 ease-in-out ${
-              isScrolled
+              isHomePage && isScrolled
                 ? 'text-gray-700 hover:bg-gray-100'
                 : 'text-white hover:bg-white/20'
             }`}

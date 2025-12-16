@@ -7,6 +7,8 @@ import Impact from './components/Impact';
 import Solutions from './components/Solutions';
 import Footer from './components/Footer';
 import ConsultationForm from './components/ConsultationForm';
+import AISolutionsPage from './pages/AISolutionsPage';
+import AboutPage from './pages/AboutPage';
 
 function HomePage() {
   return (
@@ -30,6 +32,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/consultation" element={<ConsultationForm />} />
+          <Route path="/solutions" element={<AISolutionsPage />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
       </div>
     </Router>
