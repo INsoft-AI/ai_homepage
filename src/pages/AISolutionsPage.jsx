@@ -9,16 +9,39 @@ const AISolutionsPage = () => {
   useEffect(() => {
     // URL 해시가 있으면 해당 섹션으로 스크롤
     if (location.hash) {
-      const element = document.querySelector(location.hash);
+      const targetId = location.hash.replace('#', '');
+      const element = document.getElementById(targetId);
       if (element) {
         setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
+          const headerOffset = 140; // Header(80px) + Navigation(60px)
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }, 100);
       }
     } else {
       window.scrollTo(0, 0);
     }
   }, [location]);
+
+  const scrollToSection = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 140; // Header(80px) + Navigation(60px)
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   const solutions = [
     {
@@ -161,13 +184,13 @@ const AISolutionsPage = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="flex overflow-x-auto py-4 gap-4 md:gap-8 justify-start md:justify-center">
               {solutions.map((solution) => (
-                <a
+                <button
                   key={solution.id}
-                  href={`#${solution.id}`}
-                  className="flex-shrink-0 px-4 py-2 rounded-lg text-gray-600 hover:text-purple-600 hover:bg-purple-50 font-medium transition-colors duration-200"
+                  onClick={(e) => scrollToSection(e, solution.id)}
+                  className="flex-shrink-0 px-4 py-2 rounded-lg text-gray-600 hover:text-purple-600 hover:bg-purple-50 font-medium transition-colors duration-200 cursor-pointer"
                 >
                   {solution.category}
-                </a>
+                </button>
               ))}
             </nav>
           </div>

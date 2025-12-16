@@ -131,7 +131,7 @@ const Solutions = () => {
               {/* Learn More Link */}
               <div className="mt-6 pt-6 border-t border-gray-100">
                 <Link
-                  to="/solutions"
+                  to={`/solutions#${solution.id}`}
                   className="inline-flex items-center gap-2 text-purple-600 font-semibold hover:gap-3 transition-all duration-200"
                 >
                   <span>자세히 알아보기</span>
