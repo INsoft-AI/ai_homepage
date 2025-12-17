@@ -22,6 +22,7 @@ const Header = () => {
     { name: '서비스', href: '#services', isRoute: false },
     { name: 'AI 솔루션', href: '#solutions', isRoute: false },
     { name: '성과 사례', href: '#impact', isRoute: false },
+    { name: '뉴스', href: '/news', isRoute: true },
     { name: '회사소개', href: '/about', isRoute: true },
     { name: '문의하기', href: '/consultation', isRoute: true },
   ];

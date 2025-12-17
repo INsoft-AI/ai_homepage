@@ -9,6 +9,8 @@ import Footer from './components/Footer';
 import ConsultationForm from './components/ConsultationForm';
 import AISolutionsPage from './pages/AISolutionsPage';
 import AboutPage from './pages/AboutPage';
+import NewsPage from './pages/NewsPage';
+import NewsDetailPage from './pages/NewsDetailPage';
 
 function HomePage() {
   return (
@@ -34,6 +36,8 @@ function App() {
           <Route path="/consultation" element={<ConsultationForm />} />
           <Route path="/solutions" element={<AISolutionsPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/news" element={<NewsPage />} />
+          <Route path="/news/:id" element={<NewsDetailPage />} />
         </Routes>
       </div>
     </Router>
